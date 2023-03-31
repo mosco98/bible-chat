@@ -1,0 +1,18 @@
+.Message {
+  width: 100%;
+
+  .Message__inner {
+    width: fit-content;
+    max-width: 70%;
+
+    @apply bg-yellow-600 px-4 py-3;
+
+    &.type-sender {
+      @apply rounded-t-md rounded-bl-md ml-auto;
+    }
+
+    &.type-receiver {
+      @apply rounded-b-md rounded-tr-md mr-auto;
+    }
+  }
+}
