@@ -18,9 +18,11 @@ export default function Message({ text, type, date }: MessageTypes) {
       <div className={messageInnerClasses}>
         <p>{text}</p>
 
-        <span className="text-xs text-gray-100 mt-2 block opacity-80">
-          {time}
-        </span>
+        {date && (
+          <span className="text-xs text-gray-100 mt-2 block opacity-80">
+            {time}
+          </span>
+        )}
       </div>
     </motion.div>
   )
