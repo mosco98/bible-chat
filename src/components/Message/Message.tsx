@@ -1,4 +1,5 @@
 import cn from "classnames"
+import { motion } from "framer-motion"
 import moment from "moment"
 import { MessageTypes } from "../../utils/types"
 import styles from "./Message.module.scss"
@@ -6,15 +7,21 @@ import styles from "./Message.module.scss"
 export default function Message({ text, type, date }: MessageTypes) {
   const messageInnerClasses = cn(styles.Message__inner, styles[`type-${type}`])
 
-  const time = moment(date).format("H:mm")
+  const time = moment(String(date)).format("H:mm A")
 
   return (
-    <div className={styles.Message}>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1, transition: { duration: 1, type: "spring" } }}
+      className={styles.Message}
+    >
       <div className={messageInnerClasses}>
         <p>{text}</p>
 
-        <span className="text-xs text-gray-100 mt-1">{time}</span>
+        <span className="text-xs text-gray-100 mt-2 block opacity-80">
+          {time}
+        </span>
       </div>
-    </div>
+    </motion.div>
   )
 }

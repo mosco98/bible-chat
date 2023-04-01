@@ -38,9 +38,9 @@ export default function App() {
     const config = {
       model: "text-davinci-003",
       prompt:
-        "Respond to this text like a therapist. Answer like Pastor Emmanuel Iren. Also,Attach a matching bible verse. Return response as text\n\n" +
+        "Respond to this text like a Pastor. Also, Attach a matching bible verse. Return response as text\n\n" +
         text +
-        "",
+        ". ",
       temperature: 0.5,
       max_tokens: 1000,
       frequency_penalty: 0.8
@@ -83,8 +83,10 @@ export default function App() {
         <div className="flex-grow flex justify-end flex-col h-full overflow-hidden">
           <div className="p-4 space-y-4 overflow-y-auto">
             {messages.map((message) => (
-              <Message key={message.id} {...message} loading={sending} />
+              <Message key={message.id} {...message} />
             ))}
+
+            {sending && <Message text="Typing..." type="receiver" />}
 
             <div ref={messagesContainerBottomRef} />
           </div>

@@ -1,7 +1,6 @@
 export interface MessageTypes {
-  id: string
+  id?: string
   text: string
   type: "sender" | "receiver"
-  date: string
-  loading?: boolean
+  date?: string
 }
