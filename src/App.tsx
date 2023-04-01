@@ -11,7 +11,7 @@ export default function App() {
   const [messages, setMessages] = useState<MessageTypes[]>([
     {
       id: v4(),
-      text: `Hi there, I'm here to listen to you. Be sure that no one else will hear about our convo. **wink**`,
+      text: `Hi there, I'm here to listen to you. I'm your safe space. **wink**`,
       type: "receiver",
       date: new Date().toLocaleString()
     }
